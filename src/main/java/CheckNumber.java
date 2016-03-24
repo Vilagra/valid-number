@@ -11,7 +11,10 @@ public class CheckNumber {
     }
 
     public static boolean checkOnValidity(String number){
-        String valid = "^\\+\\d{12}$|^\\d{10}$|^\\+?\\d{0,12}\\(\\d{3}\\)\\d+$|^\\+\\d{0,12}-\\d{0,12}-?\\d+$|^\\+?\\d{0,12}\\(\\d{3}\\)\\d{0,12}-\\d{0,12}-?\\d+$|^\\d{1,9}-\\d{1,9}-?\\d+$";
+        if(number==null) {
+            throw new IllegalArgumentException();
+        }
+        String valid = "^(\\+\\d8)?\\d{10}$||^(\\+\\d8)?\\(\\d{3}\\)\\d+-?\\d+-?\\d+$|^\\+?\\d{0,12}-\\d{0,12}-?\\d+$";
         Pattern val = Pattern.compile(valid);
         Matcher m = val.matcher(number);
         return  m.matches();

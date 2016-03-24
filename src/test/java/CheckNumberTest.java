@@ -56,9 +56,9 @@ public class CheckNumberTest {
     public void checkOnValidityTest12(){
         assertTrue(CheckNumber.checkOnValidity("(050)12-34-567"));
     }
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void checkOnValidityTest13(){
-        assertFalse(CheckNumber.checkOnValidity(null));
+        CheckNumber.checkOnValidity(null);
     }
     @Test
     public void checkOnValidityTest14( ){
